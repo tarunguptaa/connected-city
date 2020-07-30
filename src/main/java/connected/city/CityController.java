@@ -1,7 +1,7 @@
 package connected.city;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,7 +14,7 @@ public class CityController {
 	@Autowired
 	CityConnection connection;
 
-	@RequestMapping("/connected")
+	@GetMapping("/connected")
 	public String isConnected(@RequestParam String city1, @RequestParam String city2) {
 		log.debug("Checking route between: ", city1, " and ", city2);
 		if (city1 != null && city2 != null && connection.isConnectionAvailable(city1, city2)) {
