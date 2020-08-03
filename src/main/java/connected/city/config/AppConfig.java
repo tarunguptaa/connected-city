@@ -1,9 +1,7 @@
-package connected.city;
+package connected.city.config;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.Resource;
 
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -13,14 +11,6 @@ import springfox.documentation.spring.web.plugins.Docket;
 
 @Configuration
 public class AppConfig {
-
-	@Value("classpath:city.txt")
-	private Resource resource;
-
-	@Bean
-	public CityConnection getCityConnection() {
-		return new CityConnection(resource);
-	}
 
 	@Bean
 	public Docket productApi() {

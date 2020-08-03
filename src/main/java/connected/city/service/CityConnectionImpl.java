@@ -1,4 +1,4 @@
-package connected.city;
+package connected.city.service;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,15 +10,18 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
+import org.springframework.stereotype.Service;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class CityConnection {
+@Service
+public class CityConnectionImpl implements CityConnection {
 	private static final Map<String, Set<String>> connections = new HashMap<>();
 
-	public CityConnection(Resource resource) {
+	public CityConnectionImpl(@Value("classpath:city.txt") Resource resource) {
 		try (Reader in = new InputStreamReader(resource.getInputStream())) {
 			log.debug("Reading resource file line by line");
 			new BufferedReader(in).lines().forEach(line -> {

@@ -1,4 +1,4 @@
-package connected.city;
+package connected.city.controller;
 
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.web.bind.annotation.RequestMapping;
